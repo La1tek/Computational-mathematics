@@ -30,8 +30,14 @@ $$
 
 ## Примеры работы
 
-![Для 25 точек](/img/25.png)
+Для 25 точек
 
-![Для 50 точек](/img/50.png)
+![Для 25 точек](/Bonus/LinearRegressionCircle/img/25.png)
 
-![Для 100 точек](/img/100.png)
+Для 50 точек
+
+![Для 50 точек](/Bonus/LinearRegressionCircle/img/50.png)
+
+Для 100 точек
+
+![Для 100 точек](/Bonus/LinearRegressionCircle/img/100.png)
