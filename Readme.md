@@ -15,6 +15,13 @@ HW 2
 
 ---
 
+HW 3
+
+- [Task1](/HW3/Task1/Task1.md)
+- [Task2](/HW3/Task2/Task2.md)
+
+---
+
 Bonus
 
 - [Dual Numbers](/Bonus/Dual%20Numbers/)
