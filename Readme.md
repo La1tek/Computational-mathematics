@@ -6,7 +6,7 @@ HW 1
 
 ---
 
-HW 1
+HW 2
 
 - [Task1](/HW2/Task1/Task1.pdf)
 - [Task2](/HW2/Task2/Task2.pdf)
