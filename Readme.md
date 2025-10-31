@@ -8,6 +8,6 @@ HW 1
 
 Bonus
 
-- [Dual Numbers](/Bonus/DualNumbers/)
+- [Dual Numbers](/Bonus/Dual%20Numbers/)
 - [Matrix Guilbert](/Bonus/MatrixGuilbert/)
 - [Linear Regression Circle](/Bonus/LinearRegressionCircle/)
