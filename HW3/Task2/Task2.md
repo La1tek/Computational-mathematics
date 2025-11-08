@@ -105,9 +105,9 @@ def build_system(basis, y_values):
 
 ## Графики
 
-![Пункт б](/HW3/Task2/aprroxB.png)
+![Пункт б](/HW3/Task2/img/aprroxB.png)
 
-![Пункт г](/HW3/Task2/approxD.png)
+![Пункт г](/HW3/Task2/img/approxD.png)
 
 ---
 
@@ -218,4 +218,5 @@ $$M \alpha = b, \quad M_{ij} = \langle g_i, g_j \rangle$$
 
 - Плохо обусловленная матрица $\rightarrow$ коэффициенты МНК чувствительны к округлениям.  
 - Хорошо нормированный базис снижает $\mu(M)$ и делает решение стабильным.
+
 
