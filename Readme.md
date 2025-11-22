@@ -22,6 +22,14 @@ HW 3
 
 ---
 
+HW 4
+
+- [Task1](/HW4/Task1/Task1.ipynb)
+- [Task2](/HW4/Task2/Task2.ipynb)
+- [Task3](/HW4/Task3/Task3.ipynb)
+
+---
+
 Bonus
 
 - [Dual Numbers](/Bonus/Dual%20Numbers/)
