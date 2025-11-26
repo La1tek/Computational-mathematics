@@ -5,30 +5,20 @@
 
 Пусть узлы таблицы $x_i$ и $x_{i+1}=x_i+h$. Линейный интерполянт через значения $f(x_i)$ и $f(x_{i+1})$ даёт приближение $L(x)$. Формула ошибки:
 
-$$
-E(x)=f(x)-L(x)=\frac{f^{(2)}(\xi)}{2!}(x-x_i)(x-x_{i+1}), \quad \xi\in[x_i,x_{i+1}]
-$$
+$$E(x)=f(x)-L(x)=\frac{f^{(2)}(\xi)}{2!}(x-x_i)(x-x_{i+1}), \quad \xi\in[x_i,x_{i+1}]$$
 
 Модуль ошибки на данном отрезке ограничивается
-$$
-|E(x)| \le \frac{\max_{[x_i,x_{i+1}]}|f''(t)|}{2}\cdot |(x-x_i)(x-x_{i+1})|
-$$
+$$|E(x)| \le \frac{\max_{[x_i,x_{i+1}]}|f''(t)|}{2}\cdot |(x-x_i)(x-x_{i+1})|$$
 
 Функция $(x-x_i)(x-x_{i+1})$ по модулю достигает максимума в середине отрезка $x=\frac{x_i+x_{i+1}}{2}$, где
-$$
-|(x-x_i)(x-x_{i+1})|_{\max} = (\frac{x_i+x_{i+1}}{2}-x_i)(x_{i+1}-\frac{x_i+x_{i+1}}{2}) =\frac{h^2}{4}.
-$$
+$$|(x-x_i)(x-x_{i+1})|_{\max} = (\frac{x_i+x_{i+1}}{2}-x_i)(x_{i+1}-\frac{x_i+x_{i+1}}{2}) =\frac{h^2}{4}$$
 Подставляем в оценку:
-$$
-\boxed{|f(x)-L(x)| \le \frac{h^2}{8} \cdot \max_{[x_i,x_{i+1}]}|f''(t)|}
-$$
+$$\boxed{|f(x)-L(x)| \le \frac{h^2}{8} \cdot \max_{[x_i,x_{i+1}]}|f''(t)|}$$
 
 ---
 
 Для $f(x)=\sin x$ имеем $f''(x)=-\sin x$, поэтому
-$$
-\max_{[0,1]} |f''(x)| = \max_{[0,1]} |\sin x| = \sin 1.
-$$
+$$\max_{[0,1]} |f''(x)| = \max_{[0,1]} |\sin x| = \sin 1.$$
 Численно $\sin 1 \approx 0.8414709848$
 
 При $h=0.1$: $|E(x)| \le \frac{h^2}{8}\sin 1 \approx 1.05184\times10^{-3}$
@@ -40,19 +30,13 @@ $$
 Пусть допускаемая ошибка округления одного табличного значения не превышает $\varepsilon_r$
 
 Линейный интерполянт в интервале $[x_i,x_{i+1}]$ — это выпуклая комбинация значений в узлах:
-$$
-L(x)=\frac{x_{i+1} - x}{x_{i+1} - x_i} f(x_i) + \frac{x - x_i}{x_{i+1} - x_i} f(x_{i+1}),\quad x \in [x_i, x_{i+1}].
-$$
+$$L(x)=\frac{x_{i+1} - x}{x_{i+1} - x_i} f(x_i) + \frac{x - x_i}{x_{i+1} - x_i} f(x_{i+1}),\quad x \in [x_i, x_{i+1}].$$
 
 Тогда ошибка интерполянта, вызванная округлением не превосходит:
-$$
-|E_r| \le \frac{x_{i+1} - x}{x_{i+1} - x_i} \varepsilon_r + \frac{x - x_i}{x_{i+1} - x_i} \varepsilon_r \le (\frac{x_{i+1} - x}{x_{i+1} - x_i} + \frac{x - x_i}{x_{i+1} - x_i})\varepsilon_r \le \frac{x_{i+1} - x + x - x_i}{x_{i+1} - x_i} \varepsilon_r \le \varepsilon_r
-$$
+$$|E_r| \le \frac{x_{i+1} - x}{x_{i+1} - x_i} \varepsilon_r + \frac{x - x_i}{x_{i+1} - x_i} \varepsilon_r \le (\frac{x_{i+1} - x}{x_{i+1} - x_i} + \frac{x - x_i}{x_{i+1} - x_i})\varepsilon_r \le \frac{x_{i+1} - x + x - x_i}{x_{i+1} - x_i} \varepsilon_r \le \varepsilon_r$$
 
 Следовательно, **полная** верхняя оценка погрешности аппроксимации (интерполяция + округление) оценить:
-$$
-E_{\text{total}} \le E_{\text{interp}} + \varepsilon_r
-$$
+$$E_{total} \le E_{interp} + \varepsilon_r$$
 
 ---
 
@@ -64,9 +48,7 @@ E_{interp} \approx 1.05184\times10^{-3}.
 $$
 
 Если округлять значения до (k) знаков после запятой, максимальная ошибка округления
-$$
-\varepsilon_r \le 0.5\cdot 10^{-k}.
-$$
+$$\varepsilon_r \le 0.5\cdot 10^{-k}.$$
 
 Потребуем $\varepsilon_r \lesssim E_{interp}$:
 - $k=2 \Rightarrow \varepsilon_r \le 5 \cdot 10^{-3}$, что примерно в 5 раз больше, чем $E_{interp}$, а значит общая ошибка будет определяться округлением, а не интерполяцией
@@ -78,6 +60,4 @@ $$
 ---
 
 Значит **имеет смысл** округлять значения $\sin x$ до **3 знаков после запятой**. В этом случае:
-$$
-E_{\text{total}} \le 1.05184\cdot10^{-3} + 0.5\cdot10^{-3} \approx 1.55184\cdot10^{-3}.
-$$
+$$E_{total} \le 1.05184\cdot10^{-3} + 0.5\cdot10^{-3} \approx 1.55184\cdot10^{-3}$$
