@@ -39,6 +39,12 @@ HW 5
 
 ---
 
+HW 6
+
+- [Task1](/HW6/Task1/Task1.md)
+
+---
+
 Bonus
 
 - [Dual Numbers](/Bonus/Dual%20Numbers/)
