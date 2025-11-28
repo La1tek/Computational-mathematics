@@ -35,6 +35,7 @@ HW 5
 - [Task1](/HW5/Task1/Task1.md)
 - [Task2](/HW5/Task2/Task2.md)
 - [Task3](/HW5/Task3/Task3.md)
+- [Task4](/HW5/Task4/Task4.md)
 
 ---
 
