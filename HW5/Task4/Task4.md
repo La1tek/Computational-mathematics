@@ -42,6 +42,101 @@ $$ \Lambda_n = \max_{x \in [a, b]} \sum_{i=0}^n |l_i(x)| $$
 
 Она показывает, во сколько раз возрастает ошибка входных данных или округления при интерполяции.
 
+### Аналитический расчет
+
+#### Ошибка метода:
+
+$$g(x) = cosh(2x), \quad x \in [1, 3]$$
+
+$$ E_{trunc}=|f(x) - L_n(x)| \le \frac{M_{n+1}}{(n+1)!} |\omega_n(x)| $$
+
+$$
+\begin{align*}
+g(x) &= \cosh(2x) \\
+g^{(k)}(x) &= 2^k \cosh(2x)
+\end{align*}
+$$
+$g(x)$ монотонно возрастает, тогда максимум производной будет в точке $x=3$
+
+$$
+M_{n+1} = \max_{x \in [1,3]} |g^{(n+1)}(x)| = 2^{n+1} cosh(6)
+$$
+
+**Для равномерной сетки**
+
+Для равномерной сетки на $[a,b]$ с $n+1$ узлом:
+$$
+\max_{x \in [a,b]} \left|\prod_{i=0}^n (x - x_i)\right| \leq \frac{h^{n+1}}{4} \cdot n!
+$$
+где $h = \frac{b-a}{n}$ - шаг сетки.
+
+$$
+\max \left|\prod_{i=0}^n (x - x_i)\right| \leq \frac{1}{4} \cdot \left(\frac{2}{n}\right)^{n+1} \cdot n!
+$$
+
+Тогда получим итоговую оценку для равномерной сетки:
+
+$$
+\begin{aligned}
+E_{trunc} 
+&\leq \frac{2^{n+1}\cosh(6)}{(n+1)!} \cdot \frac{1}{4} \cdot \left(\frac{2}{n}\right)^{n+1} \cdot n! \\[6pt]
+&= \frac{\cosh(6)}{4}\frac{2^{n+1}\left(\frac{2}{n}\right)^{n+1} n!}{(n+1)!} \\[6pt]
+&= \frac{\cosh(6)}{4}\frac{\left(\frac{4}{n}\right)^{n+1} n!}{(n+1)!} \\[6pt]
+&= \frac{\cosh(6)}{4}\frac{1}{n+1}\left(\frac{4}{n}\right)^{n+1} \\[6pt]
+&= \cosh(6)\frac{4^{n}}{(n+1)n^{n+1}}.
+\end{aligned}
+$$
+
+$$
+\boxed{E_{trunc} \leq \cosh(6)\frac{4^{n}}{(n+1)n^{n+1}}}
+$$
+
+**Для чебышевской сетки**
+
+Для чебышевской сетки на $[a,b]$:
+
+$$
+\max_{x \in [a,b]} |\prod\limits_{i=0}^n (x - x_i))| \leq \frac{(b-a)^{n+1}}{2^{2n+1}}
+$$
+
+$$
+\max |\prod\limits_{i=0}^n (x - x_i))| \leq \frac{2^{n+1}}{2^{2n+1}} = \frac{1}{2^n}
+$$
+
+Получим итоговую оценку для чебышевской сетки
+
+$$
+\begin{aligned}
+E_{trunc} 
+&\leq \frac{2^{n+1}\cosh(6)}{(n+1)!} \cdot \frac{1}{2^n}  \\[6pt]
+&= \frac{2\cosh(6)}{(n+1)!}
+\end{aligned}
+$$
+
+$$
+\boxed{E_{trunc} \leq \frac{2\cosh(6)}{(n+1)!}}
+$$
+
+#### Ошибка округления
+
+$$
+E_{round} \leq M_0 \cdot \varepsilon \cdot \Lambda_n
+$$
+
+$M_0 = \max\limits_{x \in [1,3]} |g(x)| = cosh(6)$, $\varepsilon$ - машинная точность $\Lambda_n$ - константа Лебега.
+
+Для равномерной сетки:
+$$
+\Lambda_n \sim \frac{2^{n+1}}{n \log n} \quad \text{при } n \to \infty
+$$
+
+Для чебышевской сетки:
+$$
+ \Lambda_n < \frac{2}{\pi} \log(n+1) + 1
+$$
+
+Итого видим, что чебышевская сетка дет значительно лучший результат
+
 ## Ход решения
 
 
